@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosis Writing MCQ Practice</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-6">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl font-bold">Diagnosis Writing MCQ Practice</h1>
+            <p class="mt-2 text-lg">Test your knowledge with multiple-choice questions</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto py-8">
+        <section>
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Diagnosis Writing Questions</h2>
+            <div id="quiz" class="space-y-8">
+                <!-- Question 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="text-lg font-medium text-gray-800 mb-4">1. What is the most important component of a medical diagnosis?</p>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="radio" name="q1" value="a" class="mr-2">
+                            <span>a) Patient's name</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q1" value="b" class="mr-2">
+                            <span>b) Clear description of the condition</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q1" value="c" class="mr-2">
+                            <span>c) Date of birth</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q1" value="d" class="mr-2">
+                            <span>d) Insurance details</span>
+                        </label>
+                    </div>
+                </div>
+                <!-- Question 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="text-lg font-medium text-gray-800 mb-4">2. Which term best describes a diagnosis based on observed symptoms?</p>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="radio" name="q2" value="a" class="mr-2">
+                            <span>a) Differential diagnosis</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q2" value="b" class="mr-2">
+                            <span>b) Definitive diagnosis</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q2" value="c" class="mr-2">
+                            <span>c) Clinical diagnosis</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q2" value="d" class="mr-2">
+                            <span>d) Pathological diagnosis</span>
+                        </label>
+                    </div>
+                </div>
+                <!-- Question 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="text-lg font-medium text-gray-800 mb-4">3. What should be avoided in a diagnosis statement?</p>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="radio" name="q3" value="a" class="mr-2">
+                            <span>a) Specific medical terminology</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q3" value="b" class="mr-2">
+                            <span>b) Ambiguous or vague terms</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q3" value="c" class="mr-2">
+                            <span>c) Reference to patient history</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q3" value="d" class="mr-2">
+                            <span>d) Clinical findings</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button onclick="submitQuiz()" class="mt-6 bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700">Submit Answers</button>
+            <p id="score" class="mt-4 text-lg text-gray-800 hidden">Your Score: <span id="scoreValue"></span>/3</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Diagnosis Writing MCQ Practice. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function submitQuiz() {
+            const answers = {
+                q1: 'b', // Clear description of the condition
+                q2: 'c', // Clinical diagnosis
+                q3: 'b'  // Ambiguous or vague terms
+            };
+            let score = 0;
+
+            // Check answers
+            for (let i = 1; i <= 3; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && selected.value === answers[`q${i}`]) {
+                    score++;
+                }
+            }
+
+            // Display score
+            const scoreDisplay = document.getElementById('score');
+            const scoreValue = document.getElementById('scoreValue');
+            scoreValue.textContent = score;
+            scoreDisplay.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
